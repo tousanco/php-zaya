@@ -1,0 +1,40 @@
+{
+    "name": "tousanco/php-zaya",
+    "description": "using this package you can easily implement the zaya.io link shortener in your php application.",
+    "keywords": [
+        "zaya",
+        "link shortener"
+    ],
+    "homepage": "https://github.com/tousanco/php-zaya",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "alikhosravi",
+            "email": "alikhosravi175@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "guzzlehttp/guzzle": "^6.5|^7.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0|^7.0|^8.0|^9.0",
+        "symfony/var-dumper" : "3.*|4.*|5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tousanco\\PhpZaya\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tousanco\\PhpZaya\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    }
+}
