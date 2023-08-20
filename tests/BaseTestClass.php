@@ -2,13 +2,18 @@
 
 namespace Tousanco\PhpZaya\Tests;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class BaseTestClass extends TestCase
 {
-    // You need to create .apiKey file in current folder and put your key in this file.
     protected function getApiKey(): string
     {
-        return file_get_contents(__DIR__.'/.apiKey');
+        $keyFile = __DIR__.'/.apiKey';
+        if (!file_exists($keyFile)) {
+            throw new Exception('You need to create .apiKey file in tests folder and put your key in this file.');
+        }
+
+        return file_get_contents($keyFile);
     }
 }
