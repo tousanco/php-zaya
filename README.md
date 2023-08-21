@@ -1,5 +1,5 @@
 # Zaya link shortener sdk for PHP
-using this package you can easily implement the zaya.io link shortener in your php application
+using this package you can easily implement the [Zaya](https://zaya.io) link shortener in your php application.
 ## Installation
 
 You can install the package via composer:
@@ -48,18 +48,6 @@ $domains = Domain::instance($apiKey)->list();
 $client = new Client();
 $domains = (new Domain($client, $apiKey))->list();
 ```
-### Account
-```php
-use Tousanco\PhpZaya\Account;
-use GuzzleHttp\Client;
-
-$apiKey = 'your api key';
-
-$accountDetails = Account::instance($apiKey)->details();
-// OR
-$client = new Client();
-$accountDetails = (new Account($client, $apiKey))->details();
-```
 ### Stats
 ```php
 use Tousanco\PhpZaya\Stats;
@@ -73,3 +61,17 @@ $stats = Stats::instance($apiKey)->total();
 $client = new Client();
 $stats = (new Stats($client, $apiKey))->total();
 ```
+### Account
+```php
+use Tousanco\PhpZaya\Account;
+use GuzzleHttp\Client;
+
+$apiKey = 'your api key';
+
+$accountDetails = Account::instance($apiKey)->details();
+// OR
+$client = new Client();
+$accountDetails = (new Account($client, $apiKey))->details();
+```
+## Documentation
+See the [documentation](https://zaya.io/developers) for more details.
