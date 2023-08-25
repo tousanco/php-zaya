@@ -9,69 +9,145 @@ composer require tousanco/php-zaya
 
 ## Usage
 First you need to get your API key from [Zaya](https://zaya.io/developers/api)
-### Links
+### Instantiate
 ```php
 use Tousanco\PhpZaya\Link;
 use GuzzleHttp\Client;
 
 $apiKey = 'your api key';
 
-// available methods: list, create, details, update, delete.
-$links = Link::instance($apiKey)->list();
+// available classes: Link, Space, Domain, Account, Stats.
+$instance = Link::instance($apiKey);
 // OR
 $client = new Client();
-$links = (new Link($client, $apiKey))->list();
+$instance = (new Link($client, $apiKey));
+```
+### Links
+```php
+use Tousanco\PhpZaya\Link;
+
+$instanceLink = Link::instance($apiKey);
+
+$listParams = [
+    // All options nullable
+    'search' => 'string',
+    'by' => 'in:title,alias,url',
+    'status' => 'in:0,1,2,3,4,5,6',
+    'space' => 'space-id',
+    'domain' => 'domain-id',
+    'favorites' => 'in:1',
+    'sort' => 'in:desc,asc,max,min',
+];
+$links = $instanceLink->list($listParams);
+
+$createOrUpdateParams = [
+    // All options nullable
+    'alias' => 'string',
+    'password' => 'string',
+    'space' => 'int',
+    'domain' => 'int',
+    'disabled' => 'int',
+    'public' => 'int',
+    'description' => 'string',
+    'expiration_url' => 'url',
+    'expiration_date' => 'Y-m-d',
+    'expiration_time' => 'HH:MM',
+    'expiration_clicks' => 'int',
+];
+$link = $instanceLink->create('https://example.com', $createOrUpdateParams);
+
+$linkId = 1;
+$link = $instanceLink->details($linkId);
+
+$link = $instanceLink->update($linkId, $createOrUpdateParams);
+
+$instanceLink->delete($linkId);
 ```
 ### Spaces
 ```php
 use Tousanco\PhpZaya\Space;
-use GuzzleHttp\Client;
 
-$apiKey = 'your api key';
+$instanceSpace = Space::instance($apiKey);
 
-// available methods: list, create, details, update, delete.
-$spaces = Space::instance($apiKey)->list();
-// OR
-$client = new Client();
-$spaces = (new Space($client, $apiKey))->list();
+$listParams = [
+    // All options nullable
+    'search' => 'string',
+    'sort' => 'in:desc,asc'
+];
+$spaces = $instanceSpace->list($listParams);
+
+$params = ['name' => 'sample space', 'color' => '#fff'];
+$space = $instanceSpace->create($params);
+
+$spaceId = 1;
+$space = $instanceSpace->details($spaceId);
+
+$space = $instanceSpace->update($spaceId, $params);
+
+$instanceSpace->delete($spaceId);
 ```
 ### Domains
 ```php
 use Tousanco\PhpZaya\Domain;
-use GuzzleHttp\Client;
 
-$apiKey = 'your api key';
+$instanceDomain = Domain::instance($apiKey);
 
-// available methods: list, create, details, update, delete.
-$domains = Domain::instance($apiKey)->list();
-// OR
-$client = new Client();
-$domains = (new Domain($client, $apiKey))->list();
+$listParams = [
+    // All options nullable
+    'search' => 'string',
+    'sort' => 'in:desc,asc'
+];
+$domains = $instanceDomain->list($listParams);
+
+$params = [
+    'name' => 'your-domain.com',
+    // index_page and not_found_page nullable.
+    'index_page' => 'url',
+    'not_found_page' => 'url',
+];
+$domain = $instanceDomain->create($params);
+
+$domainId = 1;
+$domain = $instanceDomain->details($domainId);
+
+// You cannot update the domain name
+$domain = $instanceDomain->update($domainId, $params);
+
+$instanceDomain->delete($domainId);
 ```
 ### Stats
 ```php
 use Tousanco\PhpZaya\Stats;
-use GuzzleHttp\Client;
 
-$apiKey = 'your api key';
+$instanceStats = Stats::instance($apiKey);
 
-// available methods: total, clicks, referrers, countries, languages, browsers, devices, operatingSystems
-$stats = Stats::instance($apiKey)->total();
-// OR
-$client = new Client();
-$stats = (new Stats($client, $apiKey))->total();
+$linkId = 1;
+// The default value is the current day's
+$params = ['from' => 'Y-m-d H:i:s', 'to' => 'Y-m-d H:i:s'];
+
+$total = $instanceStats->total($linkId, $params);
+
+$clicks = $instanceStats->clicks($linkId, $params);
+
+$referrers = $instanceStats->referrers($linkId, $params);
+
+$countries = $instanceStats->countries($linkId, $params);
+
+$languages = $instanceStats->languages($linkId, $params);
+
+$browsers = $instanceStats->browsers($linkId, $params);
+
+$devices = $instanceStats->devices($linkId, $params);
+
+$operatingSystems = $instanceStats->operatingSystems($linkId, $params);
 ```
 ### Account
 ```php
 use Tousanco\PhpZaya\Account;
-use GuzzleHttp\Client;
 
-$apiKey = 'your api key';
+$accountInstance = Account::instance($apiKey);
 
-$accountDetails = Account::instance($apiKey)->details();
-// OR
-$client = new Client();
-$accountDetails = (new Account($client, $apiKey))->details();
+$account = $accountInstance->details();
 ```
 ## Documentation
 See the [documentation](https://zaya.io/developers) for more details.
