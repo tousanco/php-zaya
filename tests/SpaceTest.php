@@ -7,16 +7,16 @@ use Tousanco\PhpZaya\Space;
 class SpaceTest extends BaseTestClass
 {
     /** @test */
-    public function get_spaces_list(): void
+    public function get_spaces_list()
     {
-        $list = Space::instance($this->getApiKey())->list();
+        $list = Space::instance($this->getApiKey())->all();
         $this->assertTrue(isset($list['data']));
         $this->assertTrue(isset($list['links']));
         $this->assertTrue(isset($list['meta']));
     }
 
     /** @test */
-    public function crud_actions_space(): void
+    public function crud_actions_space()
     {
         // create test
         $data = [

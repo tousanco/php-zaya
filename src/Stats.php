@@ -17,7 +17,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function total(int $linkId, array $params = []): array
+    public function total($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/total", [
@@ -43,7 +43,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function clicks(int $linkId, array $params = []): array
+    public function clicks($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/clicks", [
@@ -69,7 +69,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function referrers(int $linkId, array $params = []): array
+    public function referrers($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/referrers", [
@@ -95,7 +95,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function countries(int $linkId, array $params = []): array
+    public function countries($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/countries", [
@@ -121,7 +121,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function languages(int $linkId, array $params = []): array
+    public function languages($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/languages", [
@@ -147,7 +147,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function browsers(int $linkId, array $params = []): array
+    public function browsers($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/browsers", [
@@ -173,7 +173,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function devices(int $linkId, array $params = []): array
+    public function devices($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/devices", [
@@ -199,7 +199,7 @@ class Stats extends BaseEndpoint
      *  'to'      => AD date
      * ]
      */
-    public function operatingSystems(int $linkId, array $params = []): array
+    public function operatingSystems($linkId, $params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/operating-systems", [

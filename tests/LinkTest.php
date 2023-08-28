@@ -7,16 +7,16 @@ use Tousanco\PhpZaya\Link;
 class LinkTest extends BaseTestClass
 {
     /** @test */
-    public function get_links_list(): void
+    public function get_links_list()
     {
-        $list = Link::instance($this->getApiKey())->list();
+        $list = Link::instance($this->getApiKey())->all();
         $this->assertTrue(isset($list['data']));
         $this->assertTrue(isset($list['links']));
         $this->assertTrue(isset($list['meta']));
     }
 
     /** @test */
-    public function crud_actions_link(): void
+    public function crud_actions_link()
     {
         // create test
         $url = 'https://google.com';

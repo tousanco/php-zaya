@@ -7,7 +7,7 @@ use Tousanco\PhpZaya\Account;
 class AccountTest extends BaseTestClass
 {
     /** @test */
-    public function get_account_details(): void
+    public function get_account_details()
     {
         $account = Account::instance($this->getApiKey())->details();
         $this->assertEquals(200, $account['status']);

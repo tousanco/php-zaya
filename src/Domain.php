@@ -14,7 +14,7 @@ class Domain extends BaseEndpoint
      *
      * @see https://zaya.io/developers/domains?section=list#list
      */
-    public function list(array $params = []): array
+    public function all($params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/domains", [
@@ -36,7 +36,7 @@ class Domain extends BaseEndpoint
      *
      * @see https://zaya.io/developers/domains?section=create#create
      */
-    public function create(array $params = []): array
+    public function create($params = [])
     {
         try {
             $response = $this->client->post("$this->baseUrl/domains", [
@@ -58,7 +58,7 @@ class Domain extends BaseEndpoint
      *
      * @see https://zaya.io/developers/domains?section=show#show
      */
-    public function details(int $id): array
+    public function details($id)
     {
         try {
             $response = $this->client->get("$this->baseUrl/domains/$id", [
@@ -80,7 +80,7 @@ class Domain extends BaseEndpoint
      *
      * @see https://zaya.io/developers/domains?section=update#update
      */
-    public function update(int $id, array $params = []): array
+    public function update($id, $params = [])
     {
         try {
             $response = $this->client->patch("$this->baseUrl/domains/$id", [
@@ -102,7 +102,7 @@ class Domain extends BaseEndpoint
      *
      * @see https://zaya.io/developers/domains?section=delete#delete
      */
-    public function delete(int $id): array
+    public function delete($id)
     {
         try {
             $response = $this->client->delete("$this->baseUrl/domains/$id", [

@@ -23,7 +23,7 @@ class Link extends BaseEndpoint
      *  'sort'      => (string) in:desc,asc,max,min.
      * ]
      */
-    public function list(array $params = []): array
+    public function all($params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/links", [
@@ -46,7 +46,7 @@ class Link extends BaseEndpoint
      *
      * @see https://zaya.io/developers/links?section=create#create
      */
-    public function create(string $url, array $params = []): array
+    public function create($url, $params = [])
     {
         try {
             $response = $this->client->post("$this->baseUrl/links", [
@@ -68,7 +68,7 @@ class Link extends BaseEndpoint
      *
      * @see https://zaya.io/developers/links?section=show#show
      */
-    public function details(int $id): array
+    public function details($id)
     {
         try {
             $response = $this->client->get("$this->baseUrl/links/$id", [
@@ -90,7 +90,7 @@ class Link extends BaseEndpoint
      *
      * @see https://zaya.io/developers/links?section=update#update
      */
-    public function update(int $id, array $params = []): array
+    public function update($id, $params = [])
     {
         try {
             $response = $this->client->patch("$this->baseUrl/links/$id", [
@@ -107,12 +107,12 @@ class Link extends BaseEndpoint
     }
 
     /**
-     * @param int $id
+     * @param $id
      * @return array
      *
      * @see https://zaya.io/developers/links?section=delete#delete
      */
-    public function delete(int $id): array
+    public function delete($id)
     {
         try {
             $response = $this->client->delete("$this->baseUrl/links/$id", [

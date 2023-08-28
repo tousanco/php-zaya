@@ -11,7 +11,7 @@ abstract class BaseEndpoint
     protected $baseUrl;
     protected $headers;
 
-    public function __construct(Client $client, string $apiKey, string $baseUrl = 'https://zaya.io/api/v1')
+    public function __construct(Client $client, $apiKey, $baseUrl = 'https://zaya.io/api/v1')
     {
         $this->client = $client;
         $this->apiKey = $apiKey;
@@ -21,7 +21,7 @@ abstract class BaseEndpoint
         ];
     }
 
-    public static function instance(string $apiKey, string $baseUrl = 'https://zaya.io/api/v1')
+    public static function instance($apiKey, $baseUrl = 'https://zaya.io/api/v1')
     {
         return new static(
             new Client(), $apiKey, $baseUrl

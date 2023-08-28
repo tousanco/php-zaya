@@ -38,7 +38,7 @@ $listParams = [
     'favorites' => 'in:1',
     'sort' => 'in:desc,asc,max,min',
 ];
-$links = $instanceLink->list($listParams);
+$links = $instanceLink->all($listParams);
 
 $createOrUpdateParams = [
     // All options nullable
@@ -74,7 +74,7 @@ $listParams = [
     'search' => 'string',
     'sort' => 'in:desc,asc'
 ];
-$spaces = $instanceSpace->list($listParams);
+$spaces = $instanceSpace->all($listParams);
 
 $params = ['name' => 'sample space', 'color' => '#fff'];
 $space = $instanceSpace->create($params);
@@ -97,7 +97,7 @@ $listParams = [
     'search' => 'string',
     'sort' => 'in:desc,asc'
 ];
-$domains = $instanceDomain->list($listParams);
+$domains = $instanceDomain->all($listParams);
 
 $params = [
     'name' => 'your-domain.com',

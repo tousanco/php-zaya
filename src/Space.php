@@ -14,7 +14,7 @@ class Space extends BaseEndpoint
      *
      * @see https://zaya.io/developers/spaces?section=list#list
      */
-    public function list(array $params = []): array
+    public function all($params = [])
     {
         try {
             $response = $this->client->get("$this->baseUrl/spaces", [
@@ -36,7 +36,7 @@ class Space extends BaseEndpoint
      *
      * @see https://zaya.io/developers/spaces?section=create#create
      */
-    public function create(array $params = []): array
+    public function create($params = [])
     {
         try {
             $response = $this->client->post("$this->baseUrl/spaces", [
@@ -58,7 +58,7 @@ class Space extends BaseEndpoint
      *
      * @see https://zaya.io/developers/spaces?section=show#show
      */
-    public function details(int $id): array
+    public function details($id)
     {
         try {
             $response = $this->client->get("$this->baseUrl/spaces/$id", [
@@ -80,7 +80,7 @@ class Space extends BaseEndpoint
      *
      * @see https://zaya.io/developers/spaces?section=update#update
      */
-    public function update(int $id, array $params = []): array
+    public function update($id, $params = [])
     {
         try {
             $response = $this->client->patch("$this->baseUrl/spaces/$id", [
@@ -102,7 +102,7 @@ class Space extends BaseEndpoint
      *
      * @see https://zaya.io/developers/spaces?section=delete#delete
      */
-    public function delete(int $id): array
+    public function delete($id)
     {
         try {
             $response = $this->client->delete("$this->baseUrl/spaces/$id", [

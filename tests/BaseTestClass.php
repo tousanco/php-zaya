@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class BaseTestClass extends TestCase
 {
-    protected function getApiKey(): string
+    protected function getApiKey()
     {
         $keyFile = __DIR__.'/.apiKey';
         if (!file_exists($keyFile)) {
