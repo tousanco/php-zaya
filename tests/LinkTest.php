@@ -13,6 +13,13 @@ class LinkTest extends BaseTestClass
         $this->assertTrue(isset($list['data']));
         $this->assertTrue(isset($list['links']));
         $this->assertTrue(isset($list['meta']));
+        $this->assertEquals($list['meta']['current_page'], 1);
+
+        $list = Link::instance($this->getApiKey())->all(['page' => 2]);
+        $this->assertTrue(isset($list['data']));
+        $this->assertTrue(isset($list['links']));
+        $this->assertTrue(isset($list['meta']));
+        $this->assertEquals($list['meta']['current_page'], 2);
     }
 
     /** @test */

@@ -27,7 +27,7 @@ class Link extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/links", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {

@@ -18,7 +18,7 @@ class Domain extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/domains", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {

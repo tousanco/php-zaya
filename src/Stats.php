@@ -21,7 +21,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/total", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
@@ -47,7 +47,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/clicks", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
@@ -73,7 +73,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/referrers", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
@@ -99,7 +99,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/countries", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
@@ -125,7 +125,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/languages", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
@@ -151,7 +151,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/browsers", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
@@ -177,7 +177,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/devices", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
@@ -203,7 +203,7 @@ class Stats extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/stats/$linkId/operating-systems", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {

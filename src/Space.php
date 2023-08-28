@@ -18,7 +18,7 @@ class Space extends BaseEndpoint
     {
         try {
             $response = $this->client->get("$this->baseUrl/spaces", [
-                'form_params' => $params,
+                'query' => $params,
                 'headers' => $this->headers
             ]);
         } catch (GuzzleException $e) {
