@@ -36,7 +36,7 @@ class Domain extends BaseEndpoint
      *
      * @see https://zaya.io/developers/domains?section=create#create
      */
-    public function create($params = [])
+    public function create($params)
     {
         try {
             $response = $this->client->post("$this->baseUrl/domains", [

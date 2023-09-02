@@ -36,7 +36,7 @@ class Space extends BaseEndpoint
      *
      * @see https://zaya.io/developers/spaces?section=create#create
      */
-    public function create($params = [])
+    public function create($params)
     {
         try {
             $response = $this->client->post("$this->baseUrl/spaces", [
