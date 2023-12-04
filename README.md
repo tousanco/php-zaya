@@ -37,7 +37,15 @@ $listParams = [
     'by' => 'title',
     // ids comma separated (string)
     'ids' => '1,2,3,4,5',
-    // status (int|in:0,1,2,3,4,5,6)
+    /*
+     * status (int|in:0,1,2,3,4,5,6)
+     * 0 or null for all
+     * 1 for active
+     * 2 for pending
+     * 3 for deactivate
+     * 4 for suspended
+     * 5 for expired 
+     */
     'status' => 1,
     // (int) space-id
     'space' => 1,
@@ -45,7 +53,11 @@ $listParams = [
     'domain' => 1,
     // favorites (bool|in:1) null for false
     'favorites' => 1,
-    // sort (string|in:desc,asc,max,min)
+    /*
+     * sort (string|in:desc,asc,max,min)
+     * max for maximum clicks
+     * min for minimum clicks
+     */
     'sort' => 'desc',
 ];
 $links = $instanceLink->all($listParams);
