@@ -173,5 +173,23 @@ $accountInstance = Account::instance($apiKey);
 
 $account = $accountInstance->details();
 ```
+
+### Timeout
+You can set timeout in two ways:
+- When you create an object from the zaya class
+- When you call the methods of sending the request
+
+```php
+$baseUrl = 'https://zaya.io/api/v1';
+$timeout = 5;
+$instance = Link::instance($apiKey, $baseUrl, $timeout);
+```
+
+```php
+$timeout = 5;
+$linkId = 22;
+$instance->details($linkId, $timeout);
+```
+
 ## Documentation
 See the [documentation](https://zaya.io/developers) for more details.

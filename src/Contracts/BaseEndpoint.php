@@ -28,7 +28,11 @@ abstract class BaseEndpoint
         $this->timeout = $timeout;
     }
 
-    public static function instance($apiKey, $baseUrl = 'https://zaya.io/api/v1', $timeout = 5)
+    public static function instance(
+        $apiKey,
+        $baseUrl = 'https://zaya.io/api/v1',
+        $timeout = 5
+    )
     {
         return new static(
             new Client(),
