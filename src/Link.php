@@ -17,6 +17,7 @@ class Link extends BaseEndpoint
      *  'search'    => (string) searchKey.
      *  'by'        => (string) in:title,alias,url.
      *  'status'    => (int) in:0,1,2,3,4,5.
+     *  'ids'       => (string) ids comma separated.
      *  'space'     => (int) space id.
      *  'domain'    => (int) domain id.
      *  'favorites' => (int) in:0,1.

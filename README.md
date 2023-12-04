@@ -30,13 +30,23 @@ $instanceLink = Link::instance($apiKey);
 
 $listParams = [
     // All options nullable
-    'search' => 'string',
-    'by' => 'in:title,alias,url',
-    'status' => 'in:0,1,2,3,4,5,6',
-    'space' => 'space-id',
-    'domain' => 'domain-id',
-    'favorites' => 'in:1',
-    'sort' => 'in:desc,asc,max,min',
+    
+    // search (string)
+    'search' => 'search key',
+    // by (in:title,alias,url) null for all.
+    'by' => 'title',
+    // ids comma separated (string)
+    'ids' => '1,2,3,4,5',
+    // status (int|in:0,1,2,3,4,5,6)
+    'status' => 1,
+    // (int) space-id
+    'space' => 1,
+    // (int) domain-id
+    'domain' => 1,
+    // favorites (bool|in:1) null for false
+    'favorites' => 1,
+    // sort (string|in:desc,asc,max,min)
+    'sort' => 'desc',
 ];
 $links = $instanceLink->all($listParams);
 
@@ -71,8 +81,9 @@ $instanceSpace = Space::instance($apiKey);
 
 $listParams = [
     // All options nullable
-    'search' => 'string',
-    'sort' => 'in:desc,asc'
+    'search' => 'string key',
+    // sort (string|in:desc,asc)
+    'sort' => 'desc',
 ];
 $spaces = $instanceSpace->all($listParams);
 
@@ -94,8 +105,9 @@ $instanceDomain = Domain::instance($apiKey);
 
 $listParams = [
     // All options nullable
-    'search' => 'string',
-    'sort' => 'in:desc,asc'
+    'search' => 'string key',
+    // sort (string|in:desc,asc)
+    'sort' => 'desc',
 ];
 $domains = $instanceDomain->all($listParams);
 
