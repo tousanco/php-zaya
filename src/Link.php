@@ -10,6 +10,7 @@ class Link extends BaseEndpoint
 {
     /**
      * @param array $params
+     * @param int $timeout
      * @return array
      *
      * @see https://zaya.io/developers/links?section=list
@@ -24,12 +25,13 @@ class Link extends BaseEndpoint
      *  'sort'      => (string) in:desc,asc,max,min.
      * ]
      */
-    public function all($params = [])
+    public function all($params = [], $timeout = null)
     {
         try {
             $response = $this->client->get("$this->baseUrl/links", [
                 'query' => $params,
-                'headers' => $this->headers
+                'headers' => $this->headers,
+                'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
         } catch (GuzzleException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
@@ -43,16 +45,18 @@ class Link extends BaseEndpoint
     /**
      * @param string $url
      * @param array $params
+     * @param int $timeout
      * @return array
      *
      * @see https://zaya.io/developers/links?section=create#create
      */
-    public function create($url, $params = [])
+    public function create($url, $params = [], $timeout = null)
     {
         try {
             $response = $this->client->post("$this->baseUrl/links", [
                 'form_params' => array_merge($params, ['url' => $url]),
-                'headers' => $this->headers
+                'headers' => $this->headers,
+                'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
         } catch (GuzzleException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
@@ -65,15 +69,17 @@ class Link extends BaseEndpoint
 
     /**
      * @param int $id
+     * @param int $timeout
      * @return array
      *
      * @see https://zaya.io/developers/links?section=show#show
      */
-    public function details($id)
+    public function details($id, $timeout = null)
     {
         try {
             $response = $this->client->get("$this->baseUrl/links/$id", [
-                'headers' => $this->headers
+                'headers' => $this->headers,
+                'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
         } catch (GuzzleException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
@@ -87,16 +93,18 @@ class Link extends BaseEndpoint
     /**
      * @param int $id
      * @param array $params
+     * @param int $timeout
      * @return array
      *
      * @see https://zaya.io/developers/links?section=update#update
      */
-    public function update($id, $params = [])
+    public function update($id, $params = [], $timeout = null)
     {
         try {
             $response = $this->client->patch("$this->baseUrl/links/$id", [
                 'form_params' => $params,
-                'headers' => $this->headers
+                'headers' => $this->headers,
+                'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
         } catch (GuzzleException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
@@ -109,15 +117,17 @@ class Link extends BaseEndpoint
 
     /**
      * @param $id
+     * @param int $timeout
      * @return array
      *
      * @see https://zaya.io/developers/links?section=delete#delete
      */
-    public function delete($id)
+    public function delete($id, $timeout = null)
     {
         try {
             $response = $this->client->delete("$this->baseUrl/links/$id", [
-                'headers' => $this->headers
+                'headers' => $this->headers,
+                'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
         } catch (GuzzleException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
