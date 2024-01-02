@@ -2,8 +2,8 @@
 
 namespace Tousanco\PhpZaya;
 
-use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
 use Tousanco\PhpZaya\Contracts\BaseEndpoint;
 
 class Domain extends BaseEndpoint
@@ -23,10 +23,13 @@ class Domain extends BaseEndpoint
                 'headers' => $this->headers,
                 'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
-        } catch (GuzzleException $e) {
+        } catch (RequestException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
-        } catch (Exception $e) {
-            return [];
+        } catch (GuzzleException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
 
         return json_decode($response->getBody()->getContents(), true);
@@ -47,10 +50,13 @@ class Domain extends BaseEndpoint
                 'headers' => $this->headers,
                 'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
-        } catch (GuzzleException $e) {
+        } catch (RequestException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
-        } catch (Exception $e) {
-            return [];
+        } catch (GuzzleException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
 
         return json_decode($response->getBody()->getContents(), true);
@@ -70,10 +76,13 @@ class Domain extends BaseEndpoint
                 'headers' => $this->headers,
                 'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
-        } catch (GuzzleException $e) {
+        } catch (RequestException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
-        } catch (Exception $e) {
-            return [];
+        } catch (GuzzleException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
 
         return json_decode($response->getBody()->getContents(), true);
@@ -95,10 +104,13 @@ class Domain extends BaseEndpoint
                 'headers' => $this->headers,
                 'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
-        } catch (GuzzleException $e) {
+        } catch (RequestException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
-        } catch (Exception $e) {
-            return [];
+        } catch (GuzzleException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
 
         return json_decode($response->getBody()->getContents(), true);
@@ -118,10 +130,13 @@ class Domain extends BaseEndpoint
                 'headers' => $this->headers,
                 'timeout' => !is_null($timeout) ? $timeout : $this->timeout,
             ]);
-        } catch (GuzzleException $e) {
+        } catch (RequestException $e) {
             return json_decode($e->getResponse()->getBody()->getContents(), true);
-        } catch (Exception $e) {
-            return [];
+        } catch (GuzzleException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
 
         return json_decode($response->getBody()->getContents(), true);
