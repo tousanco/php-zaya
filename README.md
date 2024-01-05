@@ -1,4 +1,6 @@
 # Zaya link shortener sdk for PHP
+[![Check Imports](https://github.com/tousanco/php-zaya/actions/workflows/check_imports.yml/badge.svg?branch=master)](https://github.com/tousanco/php-zaya/actions/workflows/check_imports.yml)
+
 using this package you can easily implement the [Zaya](https://zaya.io) link shortener in your php application.
 ## Installation
 
