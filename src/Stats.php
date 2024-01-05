@@ -8,16 +8,18 @@ use Tousanco\PhpZaya\Contracts\BaseEndpoint;
 
 class Stats extends BaseEndpoint
 {
+    /*
+     * $params = [
+     *  'from' => AD date
+     *  'to'   => AD date
+     * ]
+     */
     /**
      * @param int $linkId
      * @param array $params
      * @param int $timeout
      * @return array
      *
-     * $params = [
-     *  'from'    => AD date
-     *  'to'      => AD date
-     * ]
      */
     public function total($linkId, $params = [], $timeout = null)
     {

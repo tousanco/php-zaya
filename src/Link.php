@@ -8,13 +8,8 @@ use Tousanco\PhpZaya\Contracts\BaseEndpoint;
 
 class Link extends BaseEndpoint
 {
-    /**
-     * @param array $params
-     * @param int $timeout
-     * @return array
-     *
-     * @see https://zaya.io/developers/links?section=list
-     * $params = [
+    /*
+     * @sample $params = [
      *  'search'    => (string) searchKey.
      *  'by'        => (string) in:title,alias,url.
      *  'status'    => (int) in:0,1,2,3,4,5.
@@ -24,6 +19,13 @@ class Link extends BaseEndpoint
      *  'favorites' => (int) in:0,1.
      *  'sort'      => (string) in:desc,asc,max,min.
      * ]
+     */
+    /**
+     * @param array $params
+     * @param int $timeout
+     * @return array
+     *
+     * @see https://zaya.io/developers/links?section=list
      */
     public function all($params = [], $timeout = null)
     {
